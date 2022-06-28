@@ -1,0 +1,20 @@
+#Redirect http://172.30.0.37:5000/
+
+#Options +SymLinksIfOwnerMatch 
+#RewriteEngine On
+
+#RewriteCond %{REQUEST_FILENAME} !-f 
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-l
+
+#RewriteRule ^(.*)$ pepe.html?url=$1 [QSA, L]
+
+#RewriteRule ^\?(.*) http://172.30.0.37:5000/?$1 [L]
+#RewriteRule ^index.html$ pepe.html [L,R=301]
+# Redireccionar a carpeta, funcionando
+#RewriteRule ^$ usuarios [L]
+#RewriteCond %{QUERY_STRING} ^mode=(list|grid)$
+#RewriteRule ^$ http://172.30.0.37:5000?$1 [L]
+
+SetHandler wsgi-script
+Options Indexes FollowSymLinks Includes ExecCGI
