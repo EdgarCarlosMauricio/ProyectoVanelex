@@ -63,8 +63,17 @@ class UsuariosFiltro(graphene.ObjectType):
 
 # Clase Para API Plan B Alertamiento en API REST
 class DatosAlertamiento(graphene.ObjectType):
+    ids = graphene.ID()
     input1 = graphene.String()
     input2 = graphene.String()
+    input3 = graphene.String()
+    input4 = graphene.String()
+    input5 = graphene.String()
+    input6 = graphene.String()
+    input7 = graphene.String()
+    input8 = graphene.String()
+    input9 = graphene.String()
+    input10 = graphene.String()
     
 class LoginFiltro(graphene.ObjectType):
    message = graphene.String()
@@ -172,7 +181,7 @@ def get_alertamiento(pg_conn):
     try:
         response = requests.get(url)
         for pg_row in response.json():
-            gql.append(DatosAlertamiento(input1=pg_row.get("input1"), input2=pg_row.get("input2")))
+            gql.append(DatosAlertamiento(ids=pg_row.get("id"), input1=pg_row.get("input1"), input2=pg_row.get("input2")), input3=pg_row.get("input3"), input4=pg_row.get("input4"), input5=pg_row.get("input5"), input6=pg_row.get("input6"), input7=pg_row.get("input7"), input8=pg_row.get("input8"), input9=pg_row.get("input9"), input10=pg_row.get("input10"))
 
     except (Exception, psycopg2.DatabaseError) as error:
         response_body = "Notice: check gets"
