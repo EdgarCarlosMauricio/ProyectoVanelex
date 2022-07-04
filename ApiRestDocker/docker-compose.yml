@@ -1,14 +1,19 @@
 services:
   web:
-    container_name: appbase64
+    container_name: planb
     restart: always
-    build: .
+    image: sisedgar/planb
     ports:
-      - "3501:3000"
+      - "3501:3501"
     links:
       - mongo
-    volumes:
-      - .:/home/node/app
     environment: 
       BD_CNN: mongodb://mongo/files
-      PORT: 3000
+      PORT: 3501
+  mongo:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes: 
+      - ./mongo-vol:/data/db

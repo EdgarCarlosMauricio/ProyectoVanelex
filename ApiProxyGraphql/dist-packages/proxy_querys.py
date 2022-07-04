@@ -74,6 +74,8 @@ class DatosAlertamiento(graphene.ObjectType):
     input8 = graphene.String()
     input9 = graphene.String()
     input10 = graphene.String()
+    createdAt = graphene.String()
+    updatedAt = graphene.String()
     
 class LoginFiltro(graphene.ObjectType):
    message = graphene.String()
@@ -172,16 +174,39 @@ def get_totalusuarios(pg_conn, tipo_filter, data_filter):
 
 # --------------------------------------------------------------------------------------------------
 # Manejador graphql para API REST para plan B de Alertamiento
-def get_alertamiento(pg_conn):
+
+
+def get_getallalertamiento(pg_conn):
     global response_body
 
     gql = []
-    url = 'http://172.30.0.37:3501/'
+    url = 'http://172.30.0.37:3501/api/files/'
 
     try:
         response = requests.get(url)
-        for pg_row in response.json():
-            gql.append(DatosAlertamiento(ids=pg_row.get("id"), input1=pg_row.get("input1"), input2=pg_row.get("input2")), input3=pg_row.get("input3"), input4=pg_row.get("input4"), input5=pg_row.get("input5"), input6=pg_row.get("input6"), input7=pg_row.get("input7"), input8=pg_row.get("input8"), input9=pg_row.get("input9"), input10=pg_row.get("input10"))
+        x = response.json()
+        
+        for x in response.json():
+            gql.append(DatosAlertamiento(ids=x['_id'], input1=x['input1'], input2=x['input2'], input3=x['input3'], input4=x['input4'], input5=x['input5'], input6=x['input6'], input7=x['input7'], input8=x['input8'], input9=x['input9'], input10=x['input10'], createdAt=x['createdAt'], updatedAt=x['updatedAt']))
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        response_body = "Notice: check gets"
+
+    return gql
+# --------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
+# Manejador graphql para API REST para plan B de Alertamiento GET ONE 
+def get_getonealertamiento(pg_conn, ids):
+    global response_body
+
+    gql = []
+    url = 'http://172.30.0.37:3501/api/files/'+ids
+
+    try:
+        response = requests.get(url)
+        x = response.json()
+        
+        gql.append(DatosAlertamiento(ids=x['_id'], input1=x['input1'], input2=x['input2'], input3=x['input3'], input4=x['input4'], input5=x['input5'], input6=x['input6'], input7=x['input7'], input8=x['input8'], input9=x['input9'], input10=x['input10'], createdAt=x['createdAt'], updatedAt=x['updatedAt']))
 
     except (Exception, psycopg2.DatabaseError) as error:
         response_body = "Notice: check gets"

@@ -48,17 +48,23 @@ class QueryEstandar(graphene.ObjectType):
     def resolve_total(self, info, tipo_filter, data_filter):
         return proxy_querys.get_totalusuarios(pg_conn, tipo_filter, data_filter)
 
-    # Query Para API Plan B Alertamiento en API REST
-    alertamiento = graphene.List(proxy_querys.DatosAlertamiento)
-    def resolve_alertamiento(self, info):
-        return proxy_querys.get_alertamiento(pg_conn)
+    # Query Para API Plan B Alertamiento en API REST "OBTENER TODOS LOS REGISTROS"
+    getallalertamiento = graphene.List(proxy_querys.DatosAlertamiento)
+
+    def resolve_getallalertamiento(self, info):
+        return proxy_querys.get_getallalertamiento(pg_conn)
+
+    # Query Para API Plan B Alertamiento en API REST "OBTENER SOLO UN REGISTRO"
+    getonealertamiento = graphene.List(proxy_querys.DatosAlertamiento, ids=graphene.String())
+    def resolve_getonealertamiento(self, info, ids):
+        return proxy_querys.get_getonealertamiento(pg_conn, ids)
         
 # 3. Mutation
 class MutationEstandar(graphene.ObjectType):
     insertuser = proxy_mutations.ModifyUserNewx.Field()
     resetPassword = proxy_mutations.ResetPassword.Field()
-    # Mutacion para actualizar datos Alertamiento en API REST
-    updateAlertamiento = proxy_mutations.UpdateAlertamiento.Field()
+    updatealertamiento = proxy_mutations.UpdateAlertamiento.Field()
+    createalertamiento = proxy_mutations.CreateAlertamiento.Field()
 
 
 # 4. Schemas
