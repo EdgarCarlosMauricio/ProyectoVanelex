@@ -87,7 +87,14 @@ docker push sisedgar/planb
         "rango11a15": "369",
         "rango16a25": "369",
         "rango26a30": "369",
-        "rangomasde30": "369"
+        "rangomasde30": "369",
+        "rango0a3vida": "21",
+        "rango4a6vida": "451",
+        "rango7a10vida": "699",
+        "rango11a15vida": "70",
+        "rango16a25vida": "2",
+        "rango26a30vida": "0",
+        "rangomasde30vida": "0"
     }
 }
 

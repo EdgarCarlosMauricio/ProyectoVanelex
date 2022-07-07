@@ -58,14 +58,29 @@ class QueryEstandar(graphene.ObjectType):
     getonealertamiento = graphene.List(proxy_querys.DatosAlertamiento, ids=graphene.String())
     def resolve_getonealertamiento(self, info, ids):
         return proxy_querys.get_getonealertamiento(pg_conn, ids)
+
+    # Query Para API Vacantes Alertamiento en API REST "OBTENER TODOS LOS REGISTROS"
+    getallvacantes = graphene.List(proxy_querys.DatosVacantes)
+
+    def resolve_getallvacantes(self, info):
+        return proxy_querys.get_getallvacantes(pg_conn)
+
+     # Query Para API Vacantes Alertamiento en API REST "OBTENER SOLO UN REGISTRO"
+    getonevacantes = graphene.List(proxy_querys.DatosVacantes, id_usuario=graphene.String())
+
+    def resolve_getonevacantes(self, info, id_usuario):
+        return proxy_querys.get_getonevacantes(pg_conn, id_usuario)
         
 # 3. Mutation
 class MutationEstandar(graphene.ObjectType):
     insertuser = proxy_mutations.ModifyUserNewx.Field()
     resetPassword = proxy_mutations.ResetPassword.Field()
     updatealertamiento = proxy_mutations.UpdateAlertamiento.Field()
+    deletealertamiento = proxy_mutations.DeleteAlertamiento.Field()
     createalertamiento = proxy_mutations.CreateAlertamiento.Field()
-
+    createvacante = proxy_mutations.CreateVacante.Field()
+    updatevacante = proxy_mutations.UpdateVacante.Field()
+    deletevacante = proxy_mutations.DeleteVacante.Field()
 
 # 4. Schemas
 schema_estandar = graphene.Schema(query=QueryEstandar, mutation=MutationEstandar)

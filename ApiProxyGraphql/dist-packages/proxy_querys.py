@@ -62,20 +62,78 @@ class UsuariosFiltro(graphene.ObjectType):
     # grupos_nombre = graphene.String()
 
 # Clase Para API Plan B Alertamiento en API REST
+
+
 class DatosAlertamiento(graphene.ObjectType):
     ids = graphene.ID()
-    input1 = graphene.String()
-    input2 = graphene.String()
-    input3 = graphene.String()
-    input4 = graphene.String()
-    input5 = graphene.String()
-    input6 = graphene.String()
-    input7 = graphene.String()
-    input8 = graphene.String()
-    input9 = graphene.String()
-    input10 = graphene.String()
+    bandejasoat1 = graphene.String()
+    bandejasoat2 = graphene.String()
+    bandejasoat3 = graphene.String()
+    bandejasoat4 = graphene.String()
+    bandejasoat5 = graphene.String()
+    bandejasoat6 = graphene.String()
+    bandejasoat7 = graphene.String()
+    bandejasoat8 = graphene.String()
+    bandejasoat9 = graphene.String()
+    bandejasoat10 = graphene.String()
+    bandejasoat11 = graphene.String()
+    bandejasoat12 = graphene.String()
+    bandejasoat13 = graphene.String()
+    bandejasoat14 = graphene.String()
+    bandejasoat15 = graphene.String()
+    bandejasoat16 = graphene.String()
+    bandejasoat17 = graphene.String()
+    bandejasoat18 = graphene.String()
+    bandejasoat19 = graphene.String()
+    bandejasoat20 = graphene.String()
+    bandejasoat21 = graphene.String()
+    bandejasoat22 = graphene.String()
+    bandejasoat23 = graphene.String()
+    bandejasoat24 = graphene.String()
+    bandejasoat25 = graphene.String()
+    bandejavida1 = graphene.String()
+    bandejavida2 = graphene.String()
+    bandejavida4 = graphene.String()
+    bandejavida6 = graphene.String()
+    bandejavida7 = graphene.String()
+    bandejavida8 = graphene.String()
+    bandejavida10 = graphene.String()
+    bandejavida11 = graphene.String()
+    bandejavida12 = graphene.String()
+    bandejavida13 = graphene.String()
+    bandejavida20 = graphene.String()
+    bandejavida23 = graphene.String()
+    bandejavida24 = graphene.String()
+    bandejavida25 = graphene.String()
+    bandejavida26 = graphene.String()
+    bandejavida27 = graphene.String()
+    bandejavida28 = graphene.String()
+    bandejavida29 = graphene.String()
+    bandejavida30 = graphene.String()
+    bandejavida31 = graphene.String()
+    bandejavida32 = graphene.String()
+    bandejavida33 = graphene.String()
+    bandejavida34 = graphene.String()
+    bandejavida35 = graphene.String()
+    bandejavida36 = graphene.String()
+    rango0a3soat = graphene.String()
+    rango4a6soat = graphene.String()
+    rango7a10soat = graphene.String()
+    rango11a15soat = graphene.String()
+    rango16a25soat = graphene.String()
+    rango26a30soat = graphene.String()
+    rangomasde30soat = graphene.String()
+    rango0a3vida = graphene.String()
+    rango4a6vida = graphene.String()
+    rango7a10vida = graphene.String()
+    rango11a15vida = graphene.String()
+    rango16a25vida = graphene.String()
+    rango26a30vida = graphene.String()
+    rangomasde30vida = graphene.String()
     createdAt = graphene.String()
     updatedAt = graphene.String()
+
+
     
 class LoginFiltro(graphene.ObjectType):
    message = graphene.String()
@@ -86,6 +144,15 @@ class RecuperarFiltro(graphene.ObjectType):
 
 class TotalUsuarios(graphene.ObjectType):
     total = graphene.String()
+
+class DatosVacantes(graphene.ObjectType):
+    id_usuario = graphene.ID()
+    nombres = graphene.String()
+    apellidos = graphene.String()
+    correo = graphene.String()
+    telefono = graphene.String()
+    url_linkedin = graphene.String()
+    notas = graphene.String()
 
 # 2. Data
 
@@ -184,10 +251,12 @@ def get_getallalertamiento(pg_conn):
 
     try:
         response = requests.get(url)
-        x = response.json()
+        rta = response.json()
         
-        for x in response.json():
-            gql.append(DatosAlertamiento(ids=x['_id'], input1=x['input1'], input2=x['input2'], input3=x['input3'], input4=x['input4'], input5=x['input5'], input6=x['input6'], input7=x['input7'], input8=x['input8'], input9=x['input9'], input10=x['input10'], createdAt=x['createdAt'], updatedAt=x['updatedAt']))
+        for x in rta:
+            # Obtenemos el valor de _id y lo insermops como ids ya que _id rompe graphql
+            x.update({'ids': x['_id']})
+            gql.append(x)
 
     except (Exception, psycopg2.DatabaseError) as error:
         response_body = "Notice: check gets"
@@ -206,7 +275,50 @@ def get_getonealertamiento(pg_conn, ids):
         response = requests.get(url)
         x = response.json()
         
-        gql.append(DatosAlertamiento(ids=x['_id'], input1=x['input1'], input2=x['input2'], input3=x['input3'], input4=x['input4'], input5=x['input5'], input6=x['input6'], input7=x['input7'], input8=x['input8'], input9=x['input9'], input10=x['input10'], createdAt=x['createdAt'], updatedAt=x['updatedAt']))
+        # Obtenemos el valor de _id y lo insermops como ids ya que _id rompe graphql
+        x.update({'ids': x['_id']})
+        gql.append(x)
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        response_body = "Notice: check gets"
+
+    return gql
+# --------------------------------------------------------------------------------------------------
+
+# Manejador graphql para API REST para Vacantes
+
+
+def get_getallvacantes(pg_conn):
+    global response_body
+
+    gql = []
+    url = 'http://172.30.0.37:5001/api/app/users/all'
+
+    try:
+        response = requests.get(url)
+        x = response.json()
+        
+        for x in response.json():
+            gql.append(DatosVacantes(id_usuario=x['_id'], nombres=x['nombres'], apellidos=x['apellidos'], correo=x['correo'], telefono=x['telefono'], url_linkedin=x['url_linkedin'], notas=x['notas']))
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        response_body = "Notice: check gets"
+
+    return gql
+# --------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
+# Manejador graphql para API REST para vacantes de Alertamiento GET ONE 
+def get_getonevacantes(pg_conn, id_usuario):
+    global response_body
+
+    gql = []
+    url = 'http://172.30.0.37:5001/api/app/users/'+id_usuario
+
+    try:
+        response = requests.get(url)
+        x = response.json()
+        
+        gql.append(DatosVacantes(id_usuario=x['_id'], nombres=x['nombres'], apellidos=x['apellidos'], correo=x['correo'], telefono=x['telefono'], url_linkedin=x['url_linkedin'], notas=x['notas']))
 
     except (Exception, psycopg2.DatabaseError) as error:
         response_body = "Notice: check gets"

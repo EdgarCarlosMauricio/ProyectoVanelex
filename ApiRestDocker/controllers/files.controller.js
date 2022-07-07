@@ -35,7 +35,8 @@ const updateFileById = async function (req, res) {
 
 //Add - Update missing file data
 const createFile = async function (req, res) {
-    let r = req.body.data;
+    let r = req.body;
+
     try {
         const newFile = new File(r);
         await newFile.save();

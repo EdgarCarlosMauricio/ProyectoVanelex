@@ -201,31 +201,59 @@ var FileSchema = Schema({
         type: String,
         required: false,
     },
-    rango0a3: {
+    rango0a3soat: {
         type: String,
         required: false,
     },
-    rango4a6: {
+    rango4a6soat: {
         type: String,
         required: false,
     },
-    rango7a10: {
+    rango7a10soat: {
         type: String,
         required: false,
     },
-    rango11a15: {
+    rango11a15soat: {
         type: String,
         required: false,
     },
-    rango16a25: {
+    rango16a25soat: {
         type: String,
         required: false,
     },
-    rango26a30: {
+    rango26a30soat: {
         type: String,
         required: false,
     },
-    rangomasde30: {
+    rangomasde30soat: {
+        type: String,
+        required: false,
+    },
+    rango0a3vida: {
+        type: String,
+        required: false,
+    },
+    rango4a6vida: {
+        type: String,
+        required: false,
+    },
+    rango7a10vida: {
+        type: String,
+        required: false,
+    },
+    rango11a15vida: {
+        type: String,
+        required: false,
+    },
+    rango16a25vida: {
+        type: String,
+        required: false,
+    },
+    rango26a30vida: {
+        type: String,
+        required: false,
+    },
+    rangomasde30vida: {
         type: String,
         required: false,
     },

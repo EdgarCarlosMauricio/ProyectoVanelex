@@ -58,16 +58,70 @@ class ResetInput(graphene.InputObjectType):
 
 
 class DataInputAlertamiento(graphene.InputObjectType):
-    input1 = graphene.String(required=False)
-    input2 = graphene.String(required=False)
-    input3 = graphene.String(required=False)
-    input4 = graphene.String(required=False)
-    input5 = graphene.String(required=False)
-    input6 = graphene.String(required=False)
-    input7 = graphene.String(required=False)
-    input8 = graphene.String(required=False)
-    input9 = graphene.String(required=False)
-    input10 = graphene.String(required=False)
+    bandejasoat1 = graphene.String(required=False)
+    bandejasoat2 = graphene.String(required=False)
+    bandejasoat3 = graphene.String(required=False)
+    bandejasoat4 = graphene.String(required=False)
+    bandejasoat5 = graphene.String(required=False)
+    bandejasoat6 = graphene.String(required=False)
+    bandejasoat7 = graphene.String(required=False)
+    bandejasoat8 = graphene.String(required=False)
+    bandejasoat9 = graphene.String(required=False)
+    bandejasoat10 = graphene.String(required=False)
+    bandejasoat11 = graphene.String(required=False)
+    bandejasoat12 = graphene.String(required=False)
+    bandejasoat13 = graphene.String(required=False)
+    bandejasoat14 = graphene.String(required=False)
+    bandejasoat15 = graphene.String(required=False)
+    bandejasoat16 = graphene.String(required=False)
+    bandejasoat17 = graphene.String(required=False)
+    bandejasoat18 = graphene.String(required=False)
+    bandejasoat19 = graphene.String(required=False)
+    bandejasoat20 = graphene.String(required=False)
+    bandejasoat21 = graphene.String(required=False)
+    bandejasoat22 = graphene.String(required=False)
+    bandejasoat23 = graphene.String(required=False)
+    bandejasoat24 = graphene.String(required=False)
+    bandejasoat25 = graphene.String(required=False)
+    bandejavida1 = graphene.String(required=False)
+    bandejavida2 = graphene.String(required=False)
+    bandejavida4 = graphene.String(required=False)
+    bandejavida6 = graphene.String(required=False)
+    bandejavida7 = graphene.String(required=False)
+    bandejavida8 = graphene.String(required=False)
+    bandejavida10 = graphene.String(required=False)
+    bandejavida11 = graphene.String(required=False)
+    bandejavida12 = graphene.String(required=False)
+    bandejavida13 = graphene.String(required=False)
+    bandejavida20 = graphene.String(required=False)
+    bandejavida23 = graphene.String(required=False)
+    bandejavida24 = graphene.String(required=False)
+    bandejavida25 = graphene.String(required=False)
+    bandejavida26 = graphene.String(required=False)
+    bandejavida27 = graphene.String(required=False)
+    bandejavida28 = graphene.String(required=False)
+    bandejavida29 = graphene.String(required=False)
+    bandejavida30 = graphene.String(required=False)
+    bandejavida31 = graphene.String(required=False)
+    bandejavida32 = graphene.String(required=False)
+    bandejavida33 = graphene.String(required=False)
+    bandejavida34 = graphene.String(required=False)
+    bandejavida35 = graphene.String(required=False)
+    bandejavida36 = graphene.String(required=False)
+    rango0a3soat = graphene.String(required=False)
+    rango4a6soat = graphene.String(required=False)
+    rango7a10soat = graphene.String(required=False)
+    rango11a15soat = graphene.String(required=False)
+    rango16a25soat = graphene.String(required=False)
+    rango26a30soat = graphene.String(required=False)
+    rangomasde30soat = graphene.String(required=False)
+    rango0a3vida = graphene.String(required=False)
+    rango4a6vida = graphene.String(required=False)
+    rango7a10vida = graphene.String(required=False)
+    rango11a15vida = graphene.String(required=False)
+    rango16a25vida = graphene.String(required=False)
+    rango26a30vida = graphene.String(required=False)
+    rangomasde30vida = graphene.String(required=False)
 
 
 class AlertamientoInputx(graphene.InputObjectType):
@@ -75,21 +129,35 @@ class AlertamientoInputx(graphene.InputObjectType):
     data = graphene.InputField(DataInputAlertamiento)
 
 
-class CreateAlertamientoInputTotal(graphene.InputObjectType):
-    input1 = graphene.String(required=True)
-    input2 = graphene.String(required=True)
-    input3 = graphene.String(required=True)
-    input4 = graphene.String(required=True)
-    input5 = graphene.String(required=True)
-    input6 = graphene.String(required=True)
-    input7 = graphene.String(required=True)
-    input8 = graphene.String(required=True)
-    input9 = graphene.String(required=True)
-    input10 = graphene.String(required=True)
-    
+class AlertamientoDeleteInput(graphene.InputObjectType):
+    ids = graphene.String(required=True)
 
 class CreateAlertamientoInput(graphene.InputObjectType):
-    data = graphene.InputField(CreateAlertamientoInputTotal)
+    data = graphene.InputField(DataInputAlertamiento)
+
+class CreateVacanteInputTotal(graphene.InputObjectType):
+    nombres = graphene.String(required=True)
+    apellidos = graphene.String(required=True)
+    correo = graphene.String(required=True)
+    telefono = graphene.String(required=True)
+    url_linkedin = graphene.String(required=True)
+    notas = graphene.String(required=True)
+
+class CreateVacanteInput(graphene.InputObjectType):
+    data = graphene.InputField(CreateVacanteInputTotal)
+
+class VacanteInputTotal(graphene.InputObjectType):
+    nombres = graphene.String(required=True)
+    apellidos = graphene.String(required=True)
+    correo = graphene.String(required=True)
+    telefono = graphene.String(required=True)
+    url_linkedin = graphene.String(required=True)
+    notas = graphene.String(required=True)
+
+class VacanteInputx(graphene.InputObjectType):
+    ids = graphene.String(required=True)
+    data = graphene.InputField(VacanteInputTotal)
+
 
 # Fin Clases Interfases De Parametros De Entrada
 # ------------------------------------------------------------------------
@@ -120,21 +188,87 @@ class PasswordReset(graphene.ObjectType):
 class ReturnCreateData(graphene.ObjectType):
     message = graphene.String()
 
+class ReturnDeleteData(graphene.ObjectType):
+    message = graphene.String()
+
 # Datos A Devolver Mutacion Plan B Alertamiento
 class ReturnData(graphene.ObjectType):
     ids = graphene.String()
-    input1 = graphene.String()
-    input2 = graphene.String()
-    input3 = graphene.String()
-    input4 = graphene.String()
-    input5 = graphene.String()
-    input6 = graphene.String()
-    input7 = graphene.String()
-    input8 = graphene.String()
-    input9 = graphene.String()
-    input10 = graphene.String()
+    bandejasoat1 = graphene.String()
+    bandejasoat2 = graphene.String()
+    bandejasoat3 = graphene.String()
+    bandejasoat4 = graphene.String()
+    bandejasoat5 = graphene.String()
+    bandejasoat6 = graphene.String()
+    bandejasoat7 = graphene.String()
+    bandejasoat8 = graphene.String()
+    bandejasoat9 = graphene.String()
+    bandejasoat10 = graphene.String()
+    bandejasoat11 = graphene.String()
+    bandejasoat12 = graphene.String()
+    bandejasoat13 = graphene.String()
+    bandejasoat14 = graphene.String()
+    bandejasoat15 = graphene.String()
+    bandejasoat16 = graphene.String()
+    bandejasoat17 = graphene.String()
+    bandejasoat18 = graphene.String()
+    bandejasoat19 = graphene.String()
+    bandejasoat20 = graphene.String()
+    bandejasoat21 = graphene.String()
+    bandejasoat22 = graphene.String()
+    bandejasoat23 = graphene.String()
+    bandejasoat24 = graphene.String()
+    bandejasoat25 = graphene.String()
+    bandejavida1 = graphene.String()
+    bandejavida2 = graphene.String()
+    bandejavida4 = graphene.String()
+    bandejavida6 = graphene.String()
+    bandejavida7 = graphene.String()
+    bandejavida8 = graphene.String()
+    bandejavida10 = graphene.String()
+    bandejavida11 = graphene.String()
+    bandejavida12 = graphene.String()
+    bandejavida13 = graphene.String()
+    bandejavida20 = graphene.String()
+    bandejavida23 = graphene.String()
+    bandejavida24 = graphene.String()
+    bandejavida25 = graphene.String()
+    bandejavida26 = graphene.String()
+    bandejavida27 = graphene.String()
+    bandejavida28 = graphene.String()
+    bandejavida29 = graphene.String()
+    bandejavida30 = graphene.String()
+    bandejavida31 = graphene.String()
+    bandejavida32 = graphene.String()
+    bandejavida33 = graphene.String()
+    bandejavida34 = graphene.String()
+    bandejavida35 = graphene.String()
+    bandejavida36 = graphene.String()
+    rango0a3soat = graphene.String()
+    rango4a6soat = graphene.String()
+    rango7a10soat = graphene.String()
+    rango11a15soat = graphene.String()
+    rango16a25soat = graphene.String()
+    rango26a30soat = graphene.String()
+    rangomasde30soat = graphene.String()
+    rango0a3vida = graphene.String()
+    rango4a6vida = graphene.String()
+    rango7a10vida = graphene.String()
+    rango11a15vida = graphene.String()
+    rango16a25vida = graphene.String()
+    rango26a30vida = graphene.String()
+    rangomasde30vida = graphene.String()
     createdAt = graphene.String()
     updatedAt = graphene.String()
+
+class ReturnVacanteData(graphene.ObjectType):
+    id_usuario = graphene.String()
+    nombres = graphene.String()
+    apellidos = graphene.String()
+    correo = graphene.String()
+    telefono = graphene.String()
+    url_linkedin = graphene.String()
+    notas = graphene.String()
 
 # Fin Clases Interfases De Respuesta
 # ------------------------------------------------------------------------
@@ -251,7 +385,6 @@ class CreateAlertamiento(graphene.Mutation):
     create_data = graphene.Field(lambda: ReturnCreateData)
 
     def mutate(self, info, d):
-        # create_data = set_createinput(d.input1, d.input2, d.input3, d.input4, d.input5, d.input6, d.input7, d.input8, d.input9, d.input10)
         create_data = set_createinput(d.data)
 
         if create_data:
@@ -263,27 +396,15 @@ class CreateAlertamiento(graphene.Mutation):
 
 
 def set_createinput(data):
-    # def set_createinput(input1, input2, input3, input4, input5, input6, input7, input8, input9, input10):
+   
     pg_connect()
     global pg_conn, response_body
     url = 'http://172.30.0.37:3501/api/files/'
    
     gql = []
-
+    
     try:
-        # datainputs = {
-        #     "input1" : input1,
-        #     "input2" : input2,
-        #     "input3" : input3,
-        #     "input4" : input4,
-        #     "input5" : input5,
-        #     "input6" : input6,
-        #     "input7" : input7,
-        #     "input8" : input8,
-        #     "input9" : input9,
-        #     "input10" : input10,
-        # }
-        
+
         response = requests.post(url, data=data)
         gql.append(ReturnCreateData(message=response.json().get("msg")))
 
@@ -320,10 +441,10 @@ def set_update_data(ids, d):
     gql = []
 
     try:
-         response = requests.put(url=url, data=d)
-         x = response.json()
-
-         gql.append(ReturnData(ids=x.get('_id'), input1=x.get('input1'), input2=x.get('input2'), input3=x.get('input3'), input4=x.get('input4'), input5=x.get('input5'), input6=x.get('input6'), input7=x.get('input7'), input8=x.get('input8'), input9=x.get('input9'), input10=x.get('input10'), createdAt=x.get('createdAt'), updatedAt=x.get('updatedAt')))
+        response = requests.put(url=url, data=d)
+        x = response.json()
+        x.update({'ids': x['_id']})
+        gql.append(x)
 
     except (Exception, psycopg2.DatabaseError) as error:
          response_body = "Notice: check set"
@@ -331,3 +452,160 @@ def set_update_data(ids, d):
     return gql
 # ------------------------------------------------------------------------
 # FIN Mutacion para actualizar datos Alertamiento en API REST
+
+# ------------------------------------------------------------------------
+# PRINCIPIO Mutacion para BORRAR datos Alertamiento en API REST
+class DeleteAlertamiento(graphene.Mutation):
+    class Arguments:
+        d = AlertamientoDeleteInput(required=True)
+
+    ok = graphene.Boolean()
+    data_delete = graphene.Field(lambda: ReturnDeleteData)
+
+    def mutate(self, info, d):
+        data_delete = set_delete_data(d.ids)
+
+        if data_delete:
+            ok = True
+        else:
+            ok = False
+        
+        return DeleteAlertamiento(data_delete=data_delete[0], ok=ok)
+
+def set_delete_data(ids):
+    pg_connect()
+    global pg_conn, response_body
+    url = 'http://172.30.0.37:3501/api/files/'+ids
+    gql = []
+
+    try:
+        response = requests.delete(url=url)
+        gql.append(ReturnDeleteData(message=response.json().get("msg")))
+
+    except (Exception, psycopg2.DatabaseError) as error:
+         response_body = "Notice: check set"
+    
+    return gql
+# ------------------------------------------------------------------------
+# FIN Mutacion para actualizar datos Alertamiento en API REST
+
+
+# ------------------------------------------------------------------------
+# PRINCIPIO Mutacion para crear datos Vacantes en API REST
+class CreateVacante(graphene.Mutation):
+    class Arguments:
+        d = CreateVacanteInput(required=True)
+
+    ok = graphene.Boolean()
+    create_data = graphene.Field(lambda: ReturnVacanteData)
+
+    def mutate(self, info, d):
+       
+        create_data = set_createvacante(d.data)
+
+        if create_data:
+            ok = True
+        else:
+            ok = False
+
+        return CreateVacante(create_data=create_data[0], ok=ok)
+
+
+def set_createvacante(data):
+    
+    pg_connect()
+    global pg_conn, response_body
+    url = 'http://172.30.0.37:5001/api/app/users/add'
+   
+    gql = []
+
+    try:
+
+        response = requests.post(url, data=data)
+        x = response.json()
+
+        gql.append(ReturnVacanteData(id_usuario=x.get('_id'), nombres=x.get('nombres'), apellidos=x.get('apellidos'), correo=x.get('correo'), telefono=x.get('telefono'), url_linkedin=x.get('url_linkedin'), notas=x.get('notas')))
+
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        response_body = "Notice: check set"
+    
+    return gql
+# ------------------------------------------------------------------------
+# FIN Mutacion para actualizar datos Vacantes en API REST
+
+# ------------------------------------------------------------------------
+# PRINCIPIO Mutacion para actualizar datos Vacantes en API REST
+class UpdateVacante(graphene.Mutation):
+    class Arguments:
+        d = VacanteInputx(required=True)
+
+    ok = graphene.Boolean()
+    data_update = graphene.Field(lambda: ReturnVacanteData)
+
+    def mutate(self, info, data):
+        data_update = set_update_vacante(data.ids, data.data)
+
+        if data_update:
+            ok = True
+        else:
+            ok = False
+        
+        return UpdateVacante(data_update=data_update[0], ok=ok)
+
+def set_update_vacante(ids, data):
+    pg_connect()
+    global pg_conn, response_body
+    url = 'http://172.30.0.37:5001/api/app/users/'+ids
+    gql = []
+
+    try:
+         response = requests.put(url=url, data=data)
+         x = response.json()
+
+         gql.append(ReturnVacanteData(id_usuario=x.get('_id'), nombres=x.get('nombres'), apellidos=x.get('apellidos'), correo=x.get('correo'), telefono=x.get('telefono'), url_linkedin=x.get('url_linkedin'), notas=x.get('notas')))
+
+    except (Exception, psycopg2.DatabaseError) as error:
+         response_body = "Notice: check set"
+    
+    return gql
+# ------------------------------------------------------------------------
+# FIN Mutacion para actualizar datos Vacantes en API REST
+
+
+# PRINCIPIO Mutacion para actualizar datos Vacantes en API REST
+class DeleteVacante(graphene.Mutation):
+    class Arguments:
+        d = VacanteInputx(required=True)
+
+    ok = graphene.Boolean()
+    data_update = graphene.Field(lambda: ReturnVacanteData)
+
+    def mutate(self, info, data):
+        data_update = set_delete_vacante(data.ids, data.data)
+
+        if data_update:
+            ok = True
+        else:
+            ok = False
+        
+        return DeleteVacante(data_update=data_update[0], ok=ok)
+
+def set_delete_vacante(ids, data):
+    pg_connect()
+    global pg_conn, response_body
+    url = 'http://172.30.0.37:5001/api/app/users/'+ids
+    gql = []
+
+    try:
+         response = requests.delete(url=url, data=data)
+         x = response.json()
+
+         gql.append(ReturnVacanteData(message = response.json().get("Message")))
+
+    except (Exception, psycopg2.DatabaseError) as error:
+         response_body = "Notice: check set"
+    
+    return gql
+# ------------------------------------------------------------------------
+# FIN Mutacion para actualizar datos Vacantes en API REST
